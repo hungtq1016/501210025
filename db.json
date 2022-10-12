@@ -1,0 +1,334 @@
+{
+  "emails": [
+    {
+      "email": "hungtq@gmail.com",
+      "id": 1
+    },
+    {
+      "email": "abc@mail.com",
+      "id": 2
+    },
+    {
+      "email": "hung@fff.com",
+      "id": 3
+    },
+    {
+      "email": "abc@test.com",
+      "id": 4
+    },
+    {
+      "email": "a@gg.c",
+      "id": 5
+    },
+    {
+      "email": "avc@gma.v",
+      "id": 6
+    },
+    {
+      "email": "",
+      "id": 7
+    },
+    {
+      "email": "sad@fadf.c",
+      "id": 8
+    },
+    {
+      "email": "",
+      "id": 9
+    }
+  ],
+  "users": [
+    {
+      "email": "admin@gmail.com",
+      "password": "$2a$10$Os9hTlmhvMt1uOC3UFONBugspBW4msdJwqf44bg7UCi8gECMTVh3u",
+      "username": "admin",
+      "phone": "0865264325",
+      "id": 1
+    },
+    {
+      "email": "hung@mail.com",
+      "password": "$2a$10$AwPyJ7YKn.tFQJ3UtRjn5u9BTW9oroGBKDSmlSovslTIBW5lJowO2",
+      "username": "hung",
+      "repassword": "123456",
+      "id": 2
+    },
+    {
+      "email": "admin1@gmail.com",
+      "password": "$2a$10$9fpIm7hGAyO9nW.hUWuhEu9L9AEWCH9nLaSkm8jdzbbCKFqq8ZFqO",
+      "username": "admin1",
+      "repassword": "123456",
+      "id": 3
+    }
+  ],
+  "brands": [
+    {
+      "id": 1,
+      "name": "Apple",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Apple-logo.png"
+    },
+    {
+      "id": 2,
+      "name": "HP",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/HP_logo_2012.svg/1024px-HP_logo_2012.svg.png"
+    },
+    {
+      "id": 3,
+      "name": "Dell",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Dell_Logo.svg/1024px-Dell_Logo.svg.png"
+    },
+    {
+      "id": 4,
+      "name": "Asus",
+      "url": "https://digitalsignagesummit.org/europe/wp-content/uploads/2017/04/200x200-asus-logo.png"
+    },
+    {
+      "id": 5,
+      "name": "Lenovo",
+      "url": "https://www.itts.uk.com/wp-content/uploads/2019/06/Lenovo-Logo-200x200-01-1024x1024-e1561369003522.png"
+    },
+    {
+      "id": 6,
+      "name": "Acer",
+      "url": "https://digitalsignagesummit.org/europe/wp-content/uploads/2018/04/acer-Logo-200x200.jpg"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Apple Macbook Air M2 2022 8GB 256GB",
+      "brandId": 1,
+      "desc": "Sau thành công của dòng Macbook M1 thì Apple lại chuẩn bị mang đến cho người dùng dòng sản phẩm Macbook Air 2022 với những điểm nâng cấp đáng chú ý. Bên cạnh đó mức giá thành lại thấp hơn so với hiện tại, chắc chắn rằng các iFan đang rất nóng lòng chờ đón sự xuất hiện của dòng sản phẩm mới này.",
+      "date": "29/9/2022",
+      "qty": "32",
+      "price": "32990000",
+      "discount": 10,
+      "img": "https://cdn2.cellphones.com.vn/358x/media/catalog/product/m/a/macbook_air_m2_1_1.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Apple MacBook Pro 13 Touch Bar M1 256GB 2020",
+      "brandId": 1,
+      "desc": "Là dòng sản phẩm có thiết kế mỏng nhẹ, sang trọng và tinh tế cùng với đó là giá thành phải chăng nên MacBook Air đã thu hút được đông đảo người dùng yêu thích và lựa chọn. Một trong những phiên bản mới nhất mà khách hàng không thể bỏ qua khi đến với CellphoneS đó là MacBook Air M1. Dưới đây là chi tiết về thiết kế, cấu hình của máy.",
+      "date": "29/9/2020",
+      "qty": "12",
+      "price": "24990000",
+      "discount": 30,
+      "img": "https://cdn2.cellphones.com.vn/358x/media/catalog/product/m/a/macbook_air_22.png"
+    },
+    {
+      "id": 3,
+      "name": "Apple MacBook Pro 13 Touch Bar M1 256GB 2020",
+      "brandId": 1,
+      "desc": "Máy tính bảng Macbook Pro M1 thế hệ mới vừa ra mắt được trang bị vi xử lý M1 do chính Apple tự thiết kế. Hứa hẹn mang đến hiệu năng cực kì mạnh mẽ, thời gian sử dụng cực kì ấn tượng. Dưới đây là những đánh giá chi tiết về sản phẩm.",
+      "date": "21/9/2020",
+      "qty": "2",
+      "price": "29990000",
+      "discount": 20,
+      "img": "https://cdn2.cellphones.com.vn/358x/media/catalog/product/p/r/pro_8gb.png"
+    },
+    {
+      "id": 4,
+      "name": "Macbook Pro 14 M1 Pro 10 CPU - 16 GPU 16GB 1TB 2021",
+      "brandId": 1,
+      "desc": "Macbook Pro 14 inch 2021 được trang bị cấu hình khủng với chip Apple M1 Pro (10CPU/16GPU) kết hợp với bộ nhớ RAM 16GB và SSD 1TB mang lại trải nghiệm tuyệt vời với hiệu suất cực đỉnh.",
+      "date": "20/9/2021",
+      "qty": "99",
+      "price": "24990000",
+      "discount": 30,
+      "img": "https://cdn2.cellphones.com.vn/358x/media/catalog/product/m/a/macbook-pro-2021-06_8.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Macbook Pro 16 inch 2021 10 CPU - 16 GPU 32GB 512GB 2021",
+      "brandId": 1,
+      "desc": "MacBook Pro 16-inch, củ sạc 140W USB-C, cáp sạc USB-C to MagSafe 3",
+      "date": "20/9/2021",
+      "qty": "12",
+      "price": "68990000",
+      "discount": null,
+      "img": "https://cdn2.cellphones.com.vn/358x/media/catalog/product/p/r/pro_14.png"
+    },
+    {
+      "id": 6,
+      "name": "Laptop HP Gaming Victus 16-E0175AX 4R0U8PA",
+      "brandId": 2,
+      "desc": "Không giống những mẫu laptop chuyên chơi game trên thị trường, sản phẩm laptop HP Victus 16-e0175AX 4R0U8PA phối hợp hài hòa giữa ngoại hình lịch lãm cùng hiệu năng vượt trội nhằm mang đến trải nghiệm chiến game tuyệt vời và tiện lợi dành cho bạn.",
+      "date": "29/12/2022",
+      "qty": "12",
+      "price": "29590000",
+      "discount": 5,
+      "img": "https://cdn2.cellphones.com.vn/358x/media/catalog/product/t/e/text_d_i_2_.png"
+    },
+    {
+      "id": 7,
+      "name": "Laptop HP Envy X360 13-BD0063DX",
+      "brandId": 2,
+      "desc": "HP là một thương hiệu laptop với nhiều sản phẩm chất lượng được người sử dụng tin dùng. Với sản phẩm HP Envy X360 13-BD0063DX cũng sẽ không làm người dùng thất vọng, laptop sở hữu một thiết kế nhỏ gọn cùng cấu hình đáp ứng tốt nhiều nhu cầu sử dụng.",
+      "date": "1/9/2022",
+      "qty": "12",
+      "price": "20790000",
+      "discount": 10,
+      "img": "https://cdn2.cellphones.com.vn/358x/media/catalog/product/t/e/text_ng_n_1__3.png"
+    },
+    {
+      "id": 8,
+      "name": "Laptop HP 15-EF2126WM 4J771UA",
+      "brandId": 2,
+      "desc": "Laptop HP là một trong những thương hiệu laptop chất lượng được nhiều người tin dùng. Với laptop HP 15-EF2126WM 4J771UA, thiết bị không chỉ sở hữu thiết kế nhỏ gọn lại được trang bị hiệu năng ổn định đáp ứng được nhiều nhu cầu sử dụng của người dùng.",
+      "date": "31/9/2022",
+      "qty": "12",
+      "price": "12990000",
+      "discount": 22,
+      "img": "https://cdn2.cellphones.com.vn/358x/media/catalog/product/t/e/text_d_i_1_.png"
+    },
+    {
+      "id": 9,
+      "name": "Laptop Dell Gaming G15 5515 P105F004CGR",
+      "brandId": 3,
+      "desc": "Laptop gaming nổi tiết với cấu hình vượt trội giúp người dùng có thể xử lý các tác vụ một cách nhanh chóng và mượt mà. Laptop Dell Gaming G15 5515 P105F004CGR cũng không ngoại lệ, laptop sở hữu một thiết kế đậm chất game thủ cùng cấu hình ổn định.",
+      "date": "29/2/2022",
+      "qty": "12",
+      "price": "18490000",
+      "discount": 10,
+      "img": "https://cdn2.cellphones.com.vn/358x/media/catalog/product/r/g/rg.jpg"
+    },
+    {
+      "id": 10,
+      "name": "Laptop Dell Inspiron 14 7420 P161G001ASL",
+      "brandId": 3,
+      "desc": "Laptop Dell Inspiron 14 7420 P16G001ASL có thiết kế sang trọng, bắt mắt cùng với hiệu năng vô cùng mạnh mẽ. Chiếc laptop Dell Inspiron sẽ phù hợp cho nhiều đối tượng như sinh viên hoặc người đi làm.",
+      "date": "29/9/2020",
+      "qty": "1",
+      "price": "23990000",
+      "discount": null,
+      "img": "https://cdn2.cellphones.com.vn/358x/media/catalog/product/3/1/31_2_35.jpg"
+    },
+    {
+      "id": 11,
+      "name": "Laptop Dell Insprion 3515 G6GR71",
+      "brandId": 3,
+      "desc": "Laptop Dell Inspiron 3515 G6GR71 - Hiện đại, sang trọng cùng các tác vụ mượt mà Laptop Dell Inspiron 3515 G6GR71 sở hữu những cấu hình ổn định cùng thiết kế đơn giản với màu đen trung tính. Đây sẽ là một sự lựa chọn an toàn và tốt nhất cho các bạn học sinh, sinh viên.",
+      "date": "29/9/2022",
+      "qty": "12",
+      "price": "9990000",
+      "discount": 5,
+      "img": "https://cdn2.cellphones.com.vn/358x/media/catalog/product/3/2/32_3_2.jpg"
+    },
+    {
+      "id": 12,
+      "name": "Laptop Dell Gaming G5 5510",
+      "brandId": 3,
+      "desc": "Dell Gaming G15 5510 - một trong những sản phẩm chiến lược của Dell ở phân khúc laptop gaming trung cấp. Mang hơi hướng thiết kế rõ rệt từ Alienware, cùng hiệu suất tuyệt vời, chiếc máy này xứng đáng là lựa chọn hoàn hảo đối với những ai muốn tìm một chiếc laptop gaming đẹp, hiệu năng ổn định với mức giá không quá cao.",
+      "date": "29/9/2021",
+      "qty": "12",
+      "price": "20990000",
+      "discount": 5,
+      "img": "https://cdn2.cellphones.com.vn/358x/media/catalog/product/1/5/15_3_137.jpg"
+    },
+    {
+      "id": 13,
+      "name": "Laptop Asus Gaming Rog Strix G15 G513IH HN015W",
+      "brandId": 4,
+      "desc": "Asus ROG Strix G15 G513IH-HN015TW là chiếc laptop có cấu hình mạnh mẽ, đáp ứng được hầu hết các tựa game trên thị trường hiện nay. Ngay cả khi hoạt động trong nhiều giờ liền máy vẫn khá mát mẻ do có hệ thống tản nhiệt cao cấp. Nếu bạn là một game thủ hay người dùng muốn tìm máy có cấu hình cao thì đừng bỏ qua chiếc laptop Asus chất lượng này.",
+      "date": "29/9/2022",
+      "qty": "1",
+      "price": "18990000",
+      "discount": null,
+      "img": "https://cdn2.cellphones.com.vn/358x/media/catalog/product/4/h/4h43.png"
+    },
+    {
+      "id": 14,
+      "name": "Laptop Asus Flip BR1100FKA-BP1088W",
+      "brandId": 4,
+      "desc": "Sự kết hợp hài hòa giữa ngoại hình năng động và hiện đại, cùng hiệu năng vượt trội đã tạo nên laptop ASUS Flip BR1100FKA-BP1135W - sản phẩm laptop đơn giản mà sang trọng sẵn sàng phục vụ người dùng công nghệ chuyên nghiệp. Tìm hiểu ngay thông tin chi tiết laptop Asus dưới đây!",
+      "date": "29/9/2022",
+      "qty": "12",
+      "price": "5990000",
+      "discount": null,
+      "img": "https://cdn2.cellphones.com.vn/358x/media/catalog/product/1/_/1_218_5.png"
+    },
+    {
+      "id": 15,
+      "name": "Laptop ASUS ROG Strix G15 G513RC-HN090W",
+      "brandId": 4,
+      "desc": "Laptop Asus Rog Strix G15 G513RC-HN090W – Trải nghiệm gaming mượt mà Laptop Asus Rog Strix G15 G513RC-HN090W là chiếc laptop có ưu thế vượt trội sở hữu thiết kế gaming khắc họa các chi tiết độc đáo. Nó còn mang trong mình cấu hình mạnh mẽ, giúp các game thủ thoải mái chiến bất cứ loại game nào.",
+      "date": "15/9/2022",
+      "qty": "12",
+      "price": "25790000",
+      "discount": 5,
+      "img": "https://cdn2.cellphones.com.vn/358x/media/catalog/product/1/1/11h06.png"
+    },
+    {
+      "id": 16,
+      "name": "Laptop Lenovo IdeaPad Gaming 3 15ACH6 82K201BBVN",
+      "brandId": 5,
+      "desc": "Laptop Lenovo IdeaPad Gaming 3 15ACH6 82K201BBVN là ứng cử viên hoàn hảo cho bạn nếu bạn đang cần một chiếc laptop gaming không chỉ mạnh mẽ ở cấu hình mà còn hoàn hảo trong ngôn ngữ thiết kế. Những chiếc laptop Lenovo Gaming này không chỉ có thể cân đẹp các tác vụ nặng mà còn dễ dàng thỏa mãn gu thẩm mỹ thanh lịch và tinh tế.",
+      "date": "29/9/2022",
+      "qty": "12",
+      "price": "15990000",
+      "discount": null,
+      "img": "https://cdn2.cellphones.com.vn/358x/media/catalog/product/g/a/gaming_003_4.png"
+    },
+    {
+      "id": 17,
+      "name": "Laptop Lenovo Ideapad 5 PRO 14ACN6 82L700M9VN",
+      "brandId": 5,
+      "desc": "Laptop Lenovo IdeaPad Gaming 3 15ACH6 82K201BBVN là ứng cử viên hoàn hảo cho bạn nếu bạn đang cần một chiếc laptop gaming không chỉ mạnh mẽ ở cấu hình mà còn hoàn hảo trong ngôn ngữ thiết kế. Những chiếc laptop Lenovo Gaming này không chỉ có thể cân đẹp các tác vụ nặng mà còn dễ dàng thỏa mãn gu thẩm mỹ thanh lịch và tinh tế.",
+      "date": "29/9/2022",
+      "qty": "12",
+      "price": "18290000",
+      "discount": null,
+      "img": "https://cdn2.cellphones.com.vn/358x/media/catalog/product/2/_/2.3_1_1.jpg"
+    },
+    {
+      "id": 18,
+      "name": "Laptop Gaming Acer Nitro 5 AN515 45 R6EV",
+      "brandId": 6,
+      "desc": "Nổi tiếng là một thiết kế phá cách diện mạo cùng hiệu năng mạnh mẽ ấn tượng, chiếc laptop này có ấn tượng mạnh từ ngoài vào trong. Bạn có thể thực hiện mọi thao tác hằng ngày mượt mà trên laptop Gaming Acer Nitro 5 AN515-45-R6EV. Hãy xem những ưu điểm cuốn hút khiến người dùng bất chấp tất cả để lựa chọn nó nhé!",
+      "date": "22/9/2022",
+      "qty": "12",
+      "price": "18990000",
+      "discount": null,
+      "img": "https://cdn2.cellphones.com.vn/358x/media/catalog/product/1/_/1_69_23.jpg"
+    },
+    {
+      "id": 19,
+      "name": "Laptop Acer Swift 3 SF314-43-R4X3 NX.AB1SV.004",
+      "brandId": 6,
+      "desc": "Laptop Acer Swift 3 SF314-43-R4X3 sở hữu một thiết kế chuẩn laptop văn phòng với trọng lượng nhẹ cùng phong cách sang trọng. Thiết kế mỏng nhẹ này giúp Acer Swift 3 SF314-43-R4X3 có tính năng động cao, dễ dàng mang theo trong học tập và công việc một cách dễ dàng. Bên cạnh đó, laptop còn được trang bị hệ thống cổng kết nối đa dạng, phục vụ đủ nhu cầu sử dụng của người dùng.",
+      "date": "31/9/2022",
+      "qty": "12",
+      "price": "20990000",
+      "discount": 16,
+      "img": "https://cdn2.cellphones.com.vn/358x/media/catalog/product/4/h/4h00.png"
+    },
+    {
+      "id": 20,
+      "name": "Laptop Acer Aspire 5 A515-56-36UT",
+      "brandId": 6,
+      "desc": "Đa dạng cổng kết nối, dễ dàng chia sẻ - USB-C, HDMI, RJ-45, USB 2.0",
+      "date": "21/9/2022",
+      "qty": "12",
+      "price": "14990000",
+      "discount": 50,
+      "img": "https://cdn2.cellphones.com.vn/358x/media/catalog/product/7/1/71qodgwqq7s._ac_sx679_.jpg"
+    }
+  ],
+  "follows": [
+    {
+      "productId": 19,
+      "userId": 2,
+      "id": 3
+    },
+    {
+      "productId": 19,
+      "userId": 2,
+      "id": 4
+    },
+    {
+      "productId": 13,
+      "userId": 1,
+      "id": 5
+    }
+  ]
+}
