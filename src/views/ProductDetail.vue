@@ -83,10 +83,11 @@
                     </button>
                 </div>
                 <div class="d-flex align-items-center mb-4 pt-2" v-else>
-                    <button class="btn btn-danger" @click="unFollowProduct(product.id)" v-if="isFollow">
-                        xoa
+                    <button class="btn btn-danger" @click="removeFromFavorite()" v-if="isFollow">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="14" fill="currentColor">
+                            <path d="M119.4 44.1c23.3-3.9 46.8-1.9 68.6 5.3l49.8 77.5-75.4 75.4c-1.5 1.5-2.4 3.6-2.3 5.8s1 4.2 2.6 5.7l112 104c2.9 2.7 7.4 2.9 10.5 .3s3.8-7 1.7-10.4l-60.4-98.1 90.7-75.6c2.6-2.1 3.5-5.7 2.4-8.8L296.8 61.8c28.5-16.7 62.4-23.2 95.7-17.6C461.5 55.6 512 115.2 512 185.1v5.8c0 41.5-17.2 81.2-47.6 109.5L283.7 469.1c-7.5 7-17.4 10.9-27.7 10.9s-20.2-3.9-27.7-10.9L47.6 300.4C17.2 272.1 0 232.4 0 190.9v-5.8c0-69.9 50.5-129.5 119.4-141z"/></svg>
                     </button>
-                    <button class="btn btn-danger" @click="followProduct(product.id)" v-else>
+                    <button class="btn btn-danger" @click="addToFavorite()" v-else>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="14" fill="currentColor">
                             <path
                                 d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z" />
@@ -143,11 +144,10 @@
 <script>
 import axios from 'axios';
 import format from '../mixin/format';
-import { mapMutations, mapGetters } from 'vuex';
+import { mapMutations, mapGetters, mapActions } from 'vuex';
 import { APIURL } from '../constant';
 import ListItem from '../components/product/ListItem.vue';
 import BreadcrumbCom from '../components/inc/BreadcrumbCom.vue';
-import swal from 'sweetalert';
 
 export default {
     components: { BreadcrumbCom, ListItem },
@@ -158,7 +158,9 @@ export default {
         ...mapGetters(['getUser','getFollows']),
         isFollow() {
             for (let i = 0; i < this.getFollows.length; i++) {
-                if (this.product.id ===  this.getFollows[i].productId) return i;
+                if (this.product.id ===  this.getFollows[i].productId) {
+                    return this.getFollows[i].id
+                };
             }
             return false;
         }
@@ -169,14 +171,21 @@ export default {
     mixins: [format],
     methods: {
         ...mapMutations(['addToCart']),
-        async followProduct(id) {
-                await axios.post(`${APIURL}/follows/`, { productId: id, userId: this.getUser.id });
-                swal('Thành Công', 'Đã thêm vào yêu thích', 'success')
-            
+        ...mapActions(['addFavorite','removeFavorite']),
+        addToFavorite() {
+            const payload = {
+                productId: parseInt(this.$route.params.id),
+                userId: this.getUser.id,
+            };
+            this.addFavorite(payload)
         },
-        async unFollowProduct(id) {
-            await axios.delete(`${APIURL}/follows/${this.isFollow}`);
-            swal('Ta', 'Đã xoa', 'error')
+        removeFromFavorite() {
+            const payload = {
+                productId: parseInt(this.$route.params.id),
+                userId: this.getUser.id,
+                id:this.isFollow
+            };
+            this.removeFavorite(payload)
         },
     }
 }
