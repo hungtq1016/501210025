@@ -316,9 +316,24 @@
   ],
   "follows": [
     {
-      "productId": 8,
+      "productId": 16,
       "userId": 1,
       "id": 1
+    },
+    {
+      "productId": 8,
+      "userId": 1,
+      "id": 2
+    },
+    {
+      "productId": 1,
+      "userId": 1,
+      "id": 3
+    },
+    {
+      "productId": 1,
+      "userId": 2,
+      "id": 4
     }
   ]
 }

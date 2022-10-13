@@ -6,31 +6,28 @@
         </td>
         <td class="align-middle">{{formatPrice(cart.price)}} VNĐ</td>
         <td class="align-middle">
-            <div class="input-group quantity mx-auto" style="width: 100px;">
-                <div class="input-group-btn">
-                    <button class="btn btn-sm btn-primary btn-minus" @click="minusItem(this.cart)">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            <div class="input-group quantity mx-auto" style="width:115px">
+                <div class="input-group">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon1" @click="minusItem(this.cart)">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="black" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" width="10px" height="18px">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" />
                         </svg>
-
                     </button>
-                </div>
-                <input type="text" class="form-control form-control-sm bg-secondary text-center" :value=cart.quantity>
-                <div class="input-group-btn">
-                    <button class="btn btn-sm btn-primary btn-plus" @click="addToCart(this.cart)">
+                    <input type="number" class="form-control mx-auto" :value=cart.quantity aria-label="Example text with button addon"
+                        aria-describedby="button-addon1">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon1" @click="addToCart(this.cart)">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" width="10px" height="18px">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                         </svg>
-
                     </button>
                 </div>
             </div>
         </td>
         <td class="align-middle">{{formatPrice(cart.price*cart.quantity)}} VNĐ</td>
         <td class="align-middle">
-            <button class="btn btn-sm btn-primary" @click="confirmDelete()">
+            <button class="btn btn-sm btn-danger" @click="confirmDelete()">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" width="18">
                     <path stroke-linecap="round" stroke-linejoin="round"
