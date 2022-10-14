@@ -67,23 +67,8 @@
                         </div>
                     </form>
                 </div>
-                <div class="d-flex align-items-center mb-4 pt-2" v-if="getUser.length == 0">
-                    <button class="btn btn-danger" @click="confirm()">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="14" fill="currentColor">
-                            <path
-                                d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z" />
-                        </svg>
-                    </button>
-                    <button class="btn btn-outline-secondary ms-2" @click="addToCart(this.product)">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="14" fill="currentColor">
-                            <path
-                                d="M24 0C10.7 0 0 10.7 0 24S10.7 48 24 48H76.1l60.3 316.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24-10.7 24-24s-10.7-24-24-24H179.9l-9.1-48h317c14.3 0 26.9-9.5 30.8-23.3l54-192C578.3 52.3 563 32 541.8 32H122l-2.4-12.5C117.4 8.2 107.5 0 96 0H24zM176 512c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm336-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48z" />
-                        </svg>
-                        <span class="ms-1">Thêm Vào Giỏ Hàng</span>
-                    </button>
-                </div>
-                <div class="d-flex align-items-center mb-4 pt-2" v-else>
-                    <button class="btn btn-danger" @click="removeFavorite(this.favorite)" v-if="isFollow">
+                <div class="d-flex align-items-center mb-4 pt-2">
+                    <button class="btn btn-danger" @click="removeFavorite(this.favorite)" v-if="this.favorite">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="14" fill="currentColor">
                             <path d="M119.4 44.1c23.3-3.9 46.8-1.9 68.6 5.3l49.8 77.5-75.4 75.4c-1.5 1.5-2.4 3.6-2.3 5.8s1 4.2 2.6 5.7l112 104c2.9 2.7 7.4 2.9 10.5 .3s3.8-7 1.7-10.4l-60.4-98.1 90.7-75.6c2.6-2.1 3.5-5.7 2.4-8.8L296.8 61.8c28.5-16.7 62.4-23.2 95.7-17.6C461.5 55.6 512 115.2 512 185.1v5.8c0 41.5-17.2 81.2-47.6 109.5L283.7 469.1c-7.5 7-17.4 10.9-27.7 10.9s-20.2-3.9-27.7-10.9L47.6 300.4C17.2 272.1 0 232.4 0 190.9v-5.8c0-69.9 50.5-129.5 119.4-141z"/></svg>
                     </button>
@@ -93,6 +78,7 @@
                                 d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z" />
                         </svg>
                     </button>
+                    <!-- <FavoriteCom isFavorite='false' :proId="product.id" :userId="this.getUser.id"/> -->
                     <button class="btn btn-outline-secondary ms-2" @click="addToCart(this.product)">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="14" fill="currentColor">
                             <path
@@ -148,45 +134,34 @@ import { mapMutations, mapGetters, mapActions } from 'vuex';
 import { APIURL } from '../constant';
 import ListItem from '../components/product/ListItem.vue';
 import BreadcrumbCom from '../components/inc/BreadcrumbCom.vue';
+import FavoriteCom from '../components/product/FavoriteCom.vue';
 
 export default {
-    components: { BreadcrumbCom, ListItem },
+    components: { BreadcrumbCom, ListItem, FavoriteCom },
     data() {
         return { product: {},favorite:{}}
     },
     computed: {
-        ...mapGetters(['getUser','getFollows']),
-        isFollow() {
-            for (let i = 0; i < this.getFollows.length; i++) {
-                if (this.product.id ===  this.getFollows[i].productId) {
-                    return this.getFollows[i].id
-                };
-            }
-            return false;
-        },
+        ...mapGetters(['getUser','getFollows','getFavorites']),
     },
     async mounted() {
         await axios.get(`${APIURL}/products/${this.$route.params.id}`).then((response) => this.product = response.data);
-        await axios.get(`${APIURL}/follows?productId=${this.$route.params.id}&userId=${this.getUser.id}`).then(response => this.favorite = this.favorite)
+        this.favorite = this.getFavorites.find(i => i.productId === parseInt(this.$route.params.id))
     },
     mixins: [format],
     methods: {
         ...mapMutations(['addToCart']),
         ...mapActions(['addFavorite','removeFavorite']),
         addToFavorite() {
-            const payload = {
+            if (this.getUser.length == 0) {
+                this.confirm()
+            }else{
+                const payload = {
                 productId: parseInt(this.$route.params.id),
                 userId: this.getUser.id,
             };
             this.addFavorite(payload)
-        },
-        removeFromFavorite() {
-            const payload = {
-                productId: parseInt(this.$route.params.id),
-                userId: this.getUser.id,
-                id:this.isFollow
-            };
-            this.removeFavorite(favorite)
+            }
         },
     }
 }

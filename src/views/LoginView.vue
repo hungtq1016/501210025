@@ -55,7 +55,8 @@ export default {
                 }
             });
             if (login) {
-                this.setUser(login.data.user)
+                this.setUser(login.data.user),
+                this.getFavorites(login.data.user.id),
                 swal("Thành Công", "Đăng Nhập Thành Công", "success");
                 this.getFollows(login.data.user.id)
 
@@ -63,7 +64,7 @@ export default {
             }
         },
         ...mapMutations(['setUser']),
-        ...mapActions(['getFollows'])
+        ...mapActions(['getFollows','getFavorites'])
     },
 
 }

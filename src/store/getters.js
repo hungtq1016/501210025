@@ -6,6 +6,5 @@ export default {
   getListCarts: state => state.carts,
   getUser: state => state.user,
   getProducts : state => state.products,
-  getFollows : state =>state.follows,
-
+  getFavorites : state => state.favorites
 }

@@ -7,21 +7,19 @@ export default{
         await axios.get(`${APIURL}/products`)
         .then((response) => {commit('setProducts',response.data)})
     },
-    async getFollows({commit},id){
-        await axios.get(`http://localhost:3000/users/${id}?_embed=follows`)
-        .then((response) => {commit('setFollows',response.data.follows)})
+    async getFavorites({commit},userId){
+        await axios.get(`${APIURL}/users/${userId}?_embed=follows`)
+        .then((response) => {commit('SET_FAVORITE',response.data.follows)})
     },
-    async addFavorite({state},payload) {
+    async addFavorite({commit},payload) {
         await axios.post(`${APIURL}/follows/`, { productId: payload.productId, userId: payload.userId })
-        .then((response) => state.follows.push(response.data))
+        .then((response) => commit("ADD_FAVORITE", response.data))
         swal('Thành Công', 'Đã thêm vào yêu thích', 'success');
-        this.getFollows(payload.userId)
-        
     },
-    async removeFavorite({state},payload) {
+    async removeFavorite({commit},payload) {
         await axios.delete(`${APIURL}/follows/`+payload.id)
-        .then((response) => {let abc =state.follows.splice(payload,1)})
+        .then(() => { commit('REMOVE_FAVORITE', payload.id); })
         swal('Thành Công', 'Đã xóa khỏi danh sách yêu thích', 'error');
-        this.getFollows(payload.userId)
-    }
+    },
+  
 }

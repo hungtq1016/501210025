@@ -26,9 +26,6 @@ export default {
     setProducts: function (state,products) {
         state.products = products
     },
-    setFollows: function (state,follows) {
-        state.follows = follows
-    },
     removeFromCart: function (state,product) {
         let item = state.carts.indexOf(product)
         state.carts.splice(item,1)
@@ -36,5 +33,15 @@ export default {
     },
     setUser : function(state,user){
         state.user = user
+    },
+    SET_FAVORITE: function (state,favorites) {
+        state.favorites = favorites
+    },
+    ADD_FAVORITE: function(state,favorite) {
+        state.favorites.push(favorite)
+    },
+    REMOVE_FAVORITE:function(state,id){
+        index = state.favorites.findIndex(favorite => favorite.id == id);
+        state.favorites.splice(index, 1);
     }
 }
