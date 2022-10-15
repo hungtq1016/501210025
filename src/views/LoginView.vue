@@ -64,7 +64,7 @@ export default {
             }
         },
         ...mapMutations(['setUser']),
-        ...mapActions(['getFollows','getFavorites'])
+        ...mapActions(['getFavorites'])
     },
 
 }

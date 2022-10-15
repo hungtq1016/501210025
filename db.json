@@ -316,11 +316,6 @@
   ],
   "follows": [
     {
-      "productId": 8,
-      "userId": 1,
-      "id": 2
-    },
-    {
       "productId": 1,
       "userId": 2,
       "id": 4
@@ -339,6 +334,21 @@
       "productId": 1,
       "userId": 1,
       "id": 7
+    },
+    {
+      "productId": 11,
+      "userId": 1,
+      "id": 8
+    },
+    {
+      "productId": 6,
+      "userId": 1,
+      "id": 9
+    },
+    {
+      "productId": 10,
+      "userId": 1,
+      "id": 10
     }
   ]
 }

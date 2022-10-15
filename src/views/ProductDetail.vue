@@ -1,22 +1,23 @@
 <template>
-    <BreadcrumbCom :target="this.product.name" :isChild="true" />
+    <BreadcrumbCom :target="this.payload.product.name" :isChild="true" />
     <div class="container-fluid container-xl">
         <div class="row pt-xl-5 ">
             <div class="col-lg-4">
-                <img class="w-100 h-100" :src="product.img" alt="Image">
+                <img class="w-100 h-100" :src="this.payload.product.img" alt="Image">
             </div>
             <div class="col-lg-8 pb-5 pos">
-                <h3 class="font-weight-semi-bold">{{product.name}} <span class="badge bg-danger text-white"
-                        v-if="product.discount">-{{product.discount}}%</span></h3>
+                <h3 class="font-weight-semi-bold">{{this.payload.product.name}} <span class="badge bg-danger text-white"
+                        v-if="this.payload.product.discount">-{{this.payload.product.discount}}%</span></h3>
                 <div class="d-flex mb-3">
-                    <small class="pt-1">({{product.rate}} rating)</small>
+                    <small class="pt-1">({{this.payload.product.rate}} rating)</small>
                 </div>
-                <div class="d-flex" v-if="product.discount">
-                    <h3 class="font-weight-semi-bold ">{{formatPrice(product.price*(1-product.discount/100))}}VNĐ</h3>
-                    <h6 class="text-muted ml-2"><del>{{formatPrice(product.price)}} VNĐ</del></h6>
+                <div class="d-flex" v-if="this.payload.product.discount">
+                    <h3 class="font-weight-semi-bold ">
+                        {{formatPrice(this.payload.product.price*(1-this.payload.product.discount/100))}}VNĐ</h3>
+                    <h6 class="text-muted ml-2"><del>{{formatPrice(this.payload.product.price)}} VNĐ</del></h6>
                 </div>
-                <h3 class="font-weight-semi-bold mb-4" v-else>{{formatPrice(product.price)}} VNĐ</h3>
-                <p class="mb-4">{{product.desc}}.</p>
+                <h3 class="font-weight-semi-bold mb-4" v-else>{{formatPrice(this.payload.product.price)}} VNĐ</h3>
+                <p class="mb-4">{{this.payload.product.desc}}.</p>
                 <div class="d-flex mb-3">
                     <p class="text-dark font-weight-medium mb-0 me-3">Sizes:</p>
                     <form class="d-flex gap-2">
@@ -70,7 +71,9 @@
                 <div class="d-flex align-items-center mb-4 pt-2">
                     <button class="btn btn-danger" @click="removeFavorite(this.favorite)" v-if="this.favorite">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="14" fill="currentColor">
-                            <path d="M119.4 44.1c23.3-3.9 46.8-1.9 68.6 5.3l49.8 77.5-75.4 75.4c-1.5 1.5-2.4 3.6-2.3 5.8s1 4.2 2.6 5.7l112 104c2.9 2.7 7.4 2.9 10.5 .3s3.8-7 1.7-10.4l-60.4-98.1 90.7-75.6c2.6-2.1 3.5-5.7 2.4-8.8L296.8 61.8c28.5-16.7 62.4-23.2 95.7-17.6C461.5 55.6 512 115.2 512 185.1v5.8c0 41.5-17.2 81.2-47.6 109.5L283.7 469.1c-7.5 7-17.4 10.9-27.7 10.9s-20.2-3.9-27.7-10.9L47.6 300.4C17.2 272.1 0 232.4 0 190.9v-5.8c0-69.9 50.5-129.5 119.4-141z"/></svg>
+                            <path
+                                d="M119.4 44.1c23.3-3.9 46.8-1.9 68.6 5.3l49.8 77.5-75.4 75.4c-1.5 1.5-2.4 3.6-2.3 5.8s1 4.2 2.6 5.7l112 104c2.9 2.7 7.4 2.9 10.5 .3s3.8-7 1.7-10.4l-60.4-98.1 90.7-75.6c2.6-2.1 3.5-5.7 2.4-8.8L296.8 61.8c28.5-16.7 62.4-23.2 95.7-17.6C461.5 55.6 512 115.2 512 185.1v5.8c0 41.5-17.2 81.2-47.6 109.5L283.7 469.1c-7.5 7-17.4 10.9-27.7 10.9s-20.2-3.9-27.7-10.9L47.6 300.4C17.2 272.1 0 232.4 0 190.9v-5.8c0-69.9 50.5-129.5 119.4-141z" />
+                        </svg>
                     </button>
                     <button class="btn btn-danger" @click="addToFavorite()" v-else>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="14" fill="currentColor">
@@ -79,13 +82,30 @@
                         </svg>
                     </button>
                     <!-- <FavoriteCom isFavorite='false' :proId="product.id" :userId="this.getUser.id"/> -->
-                    <button class="btn btn-outline-secondary ms-2" @click="addToCart(this.product)">
+                </div>
+                <div class="d-flex">
+                    <div class="input-group" style="width:120px !important">
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon1" @click="decrement()">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="black" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" width="10px" height="18px">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" />
+                            </svg>
+                        </button>
+                        <input type="number" class="form-control text-center" aria-label="Example text with button addon" :value="this.payload.quantity" :disabled="true"
+                            aria-describedby="button-addon1">
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon1" @click="increment()">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" width="10px" height="18px">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                            </svg>
+                        </button>
+                    </div>
+                    <button class="btn btn-outline-secondary ms-2" @click="addToCart(this.payload)">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="14" fill="currentColor">
                             <path
                                 d="M24 0C10.7 0 0 10.7 0 24S10.7 48 24 48H76.1l60.3 316.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24-10.7 24-24s-10.7-24-24-24H179.9l-9.1-48h317c14.3 0 26.9-9.5 30.8-23.3l54-192C578.3 52.3 563 32 541.8 32H122l-2.4-12.5C117.4 8.2 107.5 0 96 0H24zM176 512c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm336-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48z" />
                         </svg>
                         <span class="ms-1">Thêm Vào Giỏ Hàng</span>
-        
                     </button>
                 </div>
                 <div class="d-flex pt-2">
@@ -135,32 +155,51 @@ import { APIURL } from '../constant';
 import ListItem from '../components/product/ListItem.vue';
 import BreadcrumbCom from '../components/inc/BreadcrumbCom.vue';
 import FavoriteCom from '../components/product/FavoriteCom.vue';
+import swal from 'sweetalert';
 
 export default {
     components: { BreadcrumbCom, ListItem, FavoriteCom },
     data() {
-        return { product: {},favorite:{}}
+        return { favorite: {}, payload: { product: [], quantity: Number } }
     },
     computed: {
-        ...mapGetters(['getUser','getFollows','getFavorites']),
+        ...mapGetters(['getUser', 'getFavorites']),
     },
     async mounted() {
-        await axios.get(`${APIURL}/products/${this.$route.params.id}`).then((response) => this.product = response.data);
+        await axios.get(`${APIURL}/products/${this.$route.params.id}`).then((response) => {
+            this.payload.product = response.data;
+            this.payload.quantity = 1
+        });
         this.favorite = this.getFavorites.find(i => i.productId === parseInt(this.$route.params.id))
+
     },
     mixins: [format],
     methods: {
         ...mapMutations(['addToCart']),
-        ...mapActions(['addFavorite','removeFavorite']),
+        ...mapActions(['addFavorite', 'removeFavorite']),
         addToFavorite() {
             if (this.getUser.length == 0) {
                 this.confirm()
-            }else{
+            } else {
                 const payload = {
-                productId: parseInt(this.$route.params.id),
-                userId: this.getUser.id,
-            };
-            this.addFavorite(payload)
+                    productId: parseInt(this.$route.params.id),
+                    userId: this.getUser.id,
+                };
+                this.addFavorite(payload)
+            }
+        },
+        increment(){
+            if (this.payload.quantity < this.payload.product.qty) {
+                this.payload.quantity++
+            }else{
+                swal('Thất Bại','Sản phẩm đã hết không thể thêm được nữa','error')
+            }
+        },
+        decrement(){
+            if (this.payload.quantity <= 1) {
+                swal('Thất Bại','Số lượng phải lớn hơn 0','error')
+            }else{
+                this.payload.quantity--
             }
         },
     }

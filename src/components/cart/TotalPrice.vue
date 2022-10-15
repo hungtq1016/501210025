@@ -20,7 +20,7 @@
                         <h5 class="font-weight-bold">Tổng Cộng</h5>
                         <h5 class="font-weight-bold">{{formatPrice(total*1.05)}} VNĐ</h5>
                     </div>
-                    <button class="btn btn-block btn-primary my-3 py-3">Tiến Hành Thanh Toán</button>
+                    <router-link to="/checkout" class="btn btn-block btn-primary my-3 py-3">Tiến Hành Thanh Toán</router-link>
                 </div>
             </div>
         </div>
