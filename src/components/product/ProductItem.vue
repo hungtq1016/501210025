@@ -24,7 +24,7 @@
                     </svg>
                     Chi tiết
                 </router-link>
-                <button class="btn btn-sm text-dark p-0" @click="addToCart(this.product)">
+                <button class="btn btn-sm text-dark p-0" @click="addToCart(payload)">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" width="20" height="15">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -43,6 +43,14 @@
 import format from '../../mixin/format';
 import { mapMutations } from 'vuex';
 export default {
+    data(){
+        return{
+            payload:{
+                product:this.product,
+                quantity:1
+            }
+        }
+    },
     props: ['product'],
     mixins: [format],
     methods: {

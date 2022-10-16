@@ -33,7 +33,7 @@ import format from '../../mixin/format';
         mixins: [format],
         props:{
             total:Number
-        }
+        },
     }
 </script>
 

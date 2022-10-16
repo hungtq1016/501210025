@@ -350,5 +350,41 @@
       "userId": 1,
       "id": 10
     }
+  ],
+  "carts": [
+    {
+      "id": "a51c3f1c-119b-4aa3-9972-33d3b97027b3",
+      "phone": "0865264325",
+      "name": "admin",
+      "address": "123",
+      "email": "admin@gmail.com",
+      "shipping": "Giao Hàng Tận Nơi",
+      "payment": "Tiền Mặt",
+      "createAt": "2022-10-16",
+      "total": 421963500
+    }
+  ],
+  "orders": [
+    {
+      "id": "2451019d-9918-424e-8f01-e458fe588783",
+      "cartId": "a51c3f1c-119b-4aa3-9972-33d3b97027b3",
+      "productId": 1,
+      "qtyInCart": 9,
+      "total": 296910000
+    },
+    {
+      "id": "a1689970-afdb-458f-91f3-4ace0f920566",
+      "cartId": "a51c3f1c-119b-4aa3-9972-33d3b97027b3",
+      "productId": 2,
+      "qtyInCart": 3,
+      "total": 74970000
+    },
+    {
+      "id": "db6d0a8d-b7c4-4961-bfbb-3818bc23ba49",
+      "cartId": "a51c3f1c-119b-4aa3-9972-33d3b97027b3",
+      "productId": 3,
+      "qtyInCart": 1,
+      "total": 29990000
+    }
   ]
 }
