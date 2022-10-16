@@ -36,6 +36,14 @@ const router = createRouter({
       }
     },
     {
+      path: '/done',
+      name: 'done',
+      component: () => import('../views/doneView.vue'),
+      meta: {
+        title: 'Cảm Ơn Đã Đặt Hàng'
+      },  props: true
+    },
+    {
       path: '/about',
       name: 'about',
       component: () => import('../views/AboutView.vue'),

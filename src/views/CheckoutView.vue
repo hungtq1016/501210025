@@ -165,6 +165,7 @@ export default {
                     })
                 })
                 swal('Thành Công','Thanh toán thành công','success')
+                this.$router.push({ name: 'done',params:{id:1}})
             }else{
                 swal('Thất Bại','Không thể thanh toán','error')
             }
