@@ -5,11 +5,11 @@ import { APIURL } from "../constant";
 export default{
     async getProducts({commit}){
         await axios.get(`${APIURL}/products`)
-        .then((response) => {commit('setProducts',response.data)})
+        .then((response) => commit('setProducts',response.data))
     },
     async getFavorites({commit},userId){
         await axios.get(`${APIURL}/users/${userId}?_embed=follows`)
-        .then((response) => {commit('SET_FAVORITE',response.data.follows)})
+        .then((response) => commit('SET_FAVORITE',response.data.follows))
     },
     async addFavorite({commit},payload) {
         await axios.post(`${APIURL}/follows/`, { productId: payload.productId, userId: payload.userId })
@@ -21,5 +21,9 @@ export default{
         .then(() => { commit('REMOVE_FAVORITE', payload.id); })
         swal('Thành Công', 'Đã xóa khỏi danh sách yêu thích', 'error');
     },
-  
+    GET_ALL_DATA_FROM_LOCAL: function({commit}){
+        commit('setUser',localStorage.getItem('user'));
+        commit('setProducts',localStorage.getItem('products'));
+        console.log(localStorage.getItem('user'));
+    }
 }
