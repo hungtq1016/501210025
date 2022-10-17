@@ -99,7 +99,7 @@ export default {
         ...mapGetters(['getUser','getListCarts','getFavorites']),
     },
     methods: {
-        ...mapActions(['getProducts','GET_ALL_DATA_FROM_LOCAL']),
+        ...mapActions(['getProducts']),
         ...mapMutations(['setUser']),
         logout() {
             this.setUser([])
@@ -109,7 +109,6 @@ export default {
     },
     mounted() {
         this.getProducts()
-        this.GET_ALL_DATA_FROM_LOCAL()
     },
     components: { SearchCom, ModalCom }
 }

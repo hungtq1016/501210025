@@ -4,10 +4,10 @@
     <div class="container-fluid container-xl pt-5">
         <div class="row px-xl-5">
             <!-- Shop Sidebar Start -->
-            <FilterCom />
+            <FilterCom  @changePrice="updatePrice"/>
             <!-- Shop Sidebar End -->
             <!-- Shop Product Start -->
-            <GridCom :brand="this.$route.params.id" />
+            <GridCom :brand="this.$route.params.id" :price="this.price" :key="this.price"/>
             <!-- Shop Product End -->
         </div>
     </div>
@@ -18,6 +18,11 @@ import BreadcrumbCom from "../components/inc/BreadcrumbCom.vue";
 import FilterCom from "../components/product/FilterCom.vue";
 import GridCom from "../components/product/GridCom.vue";
 export default {
+    data(){
+        return{
+            price:40000000
+        }
+    },
     props: {
         name: {
             type: String,
@@ -25,7 +30,11 @@ export default {
         }
     },
     components: { BreadcrumbCom, FilterCom, GridCom },
-
+    methods: {
+        updatePrice(val) {
+            this.price = val
+        }
+    }
 }
 </script>
 

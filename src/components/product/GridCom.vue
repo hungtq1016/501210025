@@ -1,20 +1,14 @@
 <template>
   <div class="col-lg-9 col-md-12">
-    <div class="row">
-      <div class="col pb-1">
-        <div class="d-flex align-items-center justify-content-between mb-4">
-          <div class="dropdown ">
-            <button class="btn border dropdown-toggle" type="button" id="triggerId" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              Sort by
-            </button>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="triggerId">
-              <a class="dropdown-item" href="#">Latest</a>
-              <a class="dropdown-item" href="#">Popularity</a>
-              <a class="dropdown-item" href="#">Best Rating</a>
-            </div>
-          </div>
-        </div>
+    <div class="row justify-content-end">
+      <div class="col-4 pb-3">
+        <select class="form-select" aria-label="Default select example" v-model="sortBy">
+          <option value="0">Lọc Theo:</option>
+          <option value="1">Tên: A-Z</option>
+          <option value="2">Tên: Z-A</option>
+          <option value="3">Giá: Cao-Thấp</option>
+          <option value="4">Giá: Thấp-Cao</option>
+        </select>
       </div>
     </div>
     <div class="row pb-3">
@@ -72,34 +66,34 @@ import ProductItem from './ProductItem.vue';
 import PaginateCom from './PaginateCom.vue';
 import { mapGetters } from 'vuex';
 export default {
-  props: ['brand'],
+  props: ['brand','price'],
   data() {
     return {
       productsBy: [],
       req: '1',
-      total: Number
+      total: Number,
+      sortBy:0,
     };
   },
   components: { ProductItem, PaginateCom },
   computed: {
-    ...mapGetters(['getProducts'])
+    ...mapGetters(['getProducts']),
   },
   async mounted() {
     if (this.brand) {
-      await axios.get(`${APIURL}/brands/${this.brand}?_embed=products&_limit=6`).then((response) => {
+      await axios.get(`${APIURL}/brands/${this.brand}?_embed=products&_limit=6&price_lte=${this.price}`).then((response) => {
         this.productsBy = response.data.products
         this.total = parseInt(response.data.products.length / 6) + 1;
       });
     } else {
-      await axios.get(`${APIURL}/products?_page=${this.req}&_limit=6 `).then((response) => this.productsBy = response.data);
+      await axios.get(`${APIURL}/products?_page=${this.req}&_limit=6&price_lte=${this.price}`).then((response) => this.productsBy = response.data);
       this.total = parseInt(this.getProducts.length / 6) + 1;
     }
-
   },
   methods: {
     async onClickBtn(value) {
-      await axios.get(`${APIURL}/products?_page=${value}&_limit=6`).then((response) => this.productsBy = response.data);
-    }
+      await axios.get(`${APIURL}/products?_page=${value}&_limit=6&price_lte=${this.price}`).then((response) => this.productsBy = response.data);
+    },
   },
 }
 </script>

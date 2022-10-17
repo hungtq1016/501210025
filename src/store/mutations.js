@@ -25,7 +25,6 @@ export default {
     },
     setProducts: function (state,products) {
         state.products = products
-        localStorage.setItem('products', JSON.stringify(state.products))
     },
     removeFromCart: function (state,product) {
         let item = state.carts.indexOf(product)
@@ -34,7 +33,6 @@ export default {
     },
     setUser : function(state,user){
         state.user = user
-        localStorage.setItem('user', JSON.stringify(state.user))
     },
     SET_FAVORITE: function (state,favorites) {
         state.favorites = favorites

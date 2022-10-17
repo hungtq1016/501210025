@@ -21,9 +21,4 @@ export default{
         .then(() => { commit('REMOVE_FAVORITE', payload.id); })
         swal('Thành Công', 'Đã xóa khỏi danh sách yêu thích', 'error');
     },
-    GET_ALL_DATA_FROM_LOCAL: function({commit}){
-        commit('setUser',localStorage.getItem('user'));
-        commit('setProducts',localStorage.getItem('products'));
-        console.log(localStorage.getItem('user'));
-    }
 }
