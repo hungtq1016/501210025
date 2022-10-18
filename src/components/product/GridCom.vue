@@ -2,7 +2,7 @@
   <div class="col-lg-9 col-md-12">
     <div class="row justify-content-end">
       <div class="col-4 pb-3">
-        <select class="form-select" aria-label="Default select example" v-model="sortBy">
+        <select class="form-select" aria-label="Default select example" v-model="sortBy" @change="onChange($event)">
           <option value="0">Lọc Theo:</option>
           <option value="1">Tên: A-Z</option>
           <option value="2">Tên: Z-A</option>
@@ -66,13 +66,13 @@ import ProductItem from './ProductItem.vue';
 import PaginateCom from './PaginateCom.vue';
 import { mapGetters } from 'vuex';
 export default {
-  props: ['brand','price'],
+  props: ['brand', 'price'],
   data() {
     return {
       productsBy: [],
       req: '1',
       total: Number,
-      sortBy:0,
+      sortBy: 0,
     };
   },
   components: { ProductItem, PaginateCom },
@@ -81,9 +81,9 @@ export default {
   },
   async mounted() {
     if (this.brand) {
-      await axios.get(`${APIURL}/brands/${this.brand}?_embed=products&_limit=6&price_lte=${this.price}`).then((response) => {
-        this.productsBy = response.data.products
-        this.total = parseInt(response.data.products.length / 6) + 1;
+      await axios.get(`${APIURL}/products?brandId=${this.brand}&_limit=6&price_lte=${this.price}`).then((response) => {
+        this.productsBy = response.data
+        this.total = parseInt(response.data.length / 6) + 1;
       });
     } else {
       await axios.get(`${APIURL}/products?_page=${this.req}&_limit=6&price_lte=${this.price}`).then((response) => this.productsBy = response.data);
@@ -94,6 +94,7 @@ export default {
     async onClickBtn(value) {
       await axios.get(`${APIURL}/products?_page=${value}&_limit=6&price_lte=${this.price}`).then((response) => this.productsBy = response.data);
     },
+ 
   },
 }
 </script>

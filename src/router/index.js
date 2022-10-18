@@ -39,9 +39,10 @@ const router = createRouter({
       path: '/done',
       name: 'done',
       component: () => import('../views/doneView.vue'),
+      props: true ,
       meta: {
         title: 'Cảm Ơn Đã Đặt Hàng'
-      },  props: true
+      },  
     },
     {
       path: '/about',

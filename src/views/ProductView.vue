@@ -1,5 +1,5 @@
 <template>
-    <BreadcrumbCom :target="this.name" v-if="this.$route.params.id" />
+    <BreadcrumbCom :target="this.data" v-if="this.$route.params.id" />
     <BreadcrumbCom target="Tất Cả Sản Phẩm" v-else />
     <div class="container-fluid container-xl pt-5">
         <div class="row px-xl-5">
@@ -14,20 +14,29 @@
 </template>
 
 <script>
+import axios from 'axios';
 import BreadcrumbCom from "../components/inc/BreadcrumbCom.vue";
 import FilterCom from "../components/product/FilterCom.vue";
 import GridCom from "../components/product/GridCom.vue";
+import { APIURL } from '../constant';
 export default {
     data(){
         return{
-            price:40000000
+            price:40000000,
+            data:null,
+            id:this.$route.params.id
         }
     },
     props: {
         name: {
-            type: String,
             required: true
         }
+    },
+    async mounted()
+    {
+        await axios.get(`${APIURL}/brands/${this.id}`).then(response=>{
+            this.data = response.data.name
+        })
     },
     components: { BreadcrumbCom, FilterCom, GridCom },
     methods: {

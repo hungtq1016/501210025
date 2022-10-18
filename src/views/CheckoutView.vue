@@ -165,7 +165,7 @@ export default {
                     })
                 })
                 swal('Thành Công','Thanh toán thành công','success')
-                this.$router.push({ name: 'done',params:{id:1}})
+                this.$router.push({ name: 'done', query:{id:this.cart.id}}) 
             }else{
                 swal('Thất Bại','Không thể thanh toán','error')
             }
