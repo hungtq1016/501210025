@@ -143,6 +143,12 @@
                 </div>
             </div>
         </div>
+        
+    </div>
+    <div class="container-fluid container-xl pt-5">
+        <CommentCom/>
+    </div>
+    <div class="container-fluid pt-5">
         <ListItem title="Có Thể Bạn Sẽ Thích" view="date" :isGreater="false" :max="4" />
     </div>
 </template>
@@ -156,9 +162,10 @@ import ListItem from '../components/product/ListItem.vue';
 import BreadcrumbCom from '../components/inc/BreadcrumbCom.vue';
 import FavoriteCom from '../components/product/FavoriteCom.vue';
 import swal from 'sweetalert';
+import CommentCom from '../components/product/CommentCom.vue';
 
 export default {
-    components: { BreadcrumbCom, ListItem, FavoriteCom },
+    components: { BreadcrumbCom, ListItem, FavoriteCom, CommentCom },
     data() {
         return { favorite: {}, payload: { product: [], quantity: Number } }
     },

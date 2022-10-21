@@ -112,6 +112,7 @@
       "qty": "32",
       "price": "32990000",
       "discount": 10,
+      "idParent": 1,
       "img": "https://cdn2.cellphones.com.vn/358x/media/catalog/product/m/a/macbook_air_m2_1_1.jpg"
     },
     {
@@ -123,6 +124,7 @@
       "qty": "12",
       "price": "24990000",
       "discount": 30,
+      "idParent": 2,
       "img": "https://cdn2.cellphones.com.vn/358x/media/catalog/product/m/a/macbook_air_22.png"
     },
     {
@@ -134,6 +136,7 @@
       "qty": "2",
       "price": "29990000",
       "discount": 20,
+      "idParent": 3,
       "img": "https://cdn2.cellphones.com.vn/358x/media/catalog/product/p/r/pro_8gb.png"
     },
     {
@@ -145,6 +148,7 @@
       "qty": "99",
       "price": "24990000",
       "discount": 30,
+      "idParent": 4,
       "img": "https://cdn2.cellphones.com.vn/358x/media/catalog/product/m/a/macbook-pro-2021-06_8.jpg"
     },
     {
@@ -156,6 +160,7 @@
       "qty": "12",
       "price": "68990000",
       "discount": null,
+      "idParent": 5,
       "img": "https://cdn2.cellphones.com.vn/358x/media/catalog/product/p/r/pro_14.png"
     },
     {
@@ -167,6 +172,7 @@
       "qty": "12",
       "price": "29590000",
       "discount": 5,
+      "idParent": 6,
       "img": "https://cdn2.cellphones.com.vn/358x/media/catalog/product/t/e/text_d_i_2_.png"
     },
     {
@@ -178,6 +184,7 @@
       "qty": "12",
       "price": "20790000",
       "discount": 10,
+      "idParent": 7,
       "img": "https://cdn2.cellphones.com.vn/358x/media/catalog/product/t/e/text_ng_n_1__3.png"
     },
     {
@@ -189,6 +196,7 @@
       "qty": "12",
       "price": "12990000",
       "discount": 22,
+      "idParent": 8,
       "img": "https://cdn2.cellphones.com.vn/358x/media/catalog/product/t/e/text_d_i_1_.png"
     },
     {
@@ -200,6 +208,7 @@
       "qty": "12",
       "price": "18490000",
       "discount": 10,
+      "idParent": 9,
       "img": "https://cdn2.cellphones.com.vn/358x/media/catalog/product/r/g/rg.jpg"
     },
     {
@@ -211,6 +220,7 @@
       "qty": "1",
       "price": "23990000",
       "discount": null,
+      "idParent": 10,
       "img": "https://cdn2.cellphones.com.vn/358x/media/catalog/product/3/1/31_2_35.jpg"
     },
     {
@@ -222,6 +232,7 @@
       "qty": "12",
       "price": "9990000",
       "discount": 5,
+      "idParent": 11,
       "img": "https://cdn2.cellphones.com.vn/358x/media/catalog/product/3/2/32_3_2.jpg"
     },
     {
@@ -233,6 +244,7 @@
       "qty": "12",
       "price": "20990000",
       "discount": 5,
+      "idParent": 12,
       "img": "https://cdn2.cellphones.com.vn/358x/media/catalog/product/1/5/15_3_137.jpg"
     },
     {
@@ -244,6 +256,7 @@
       "qty": "1",
       "price": "18990000",
       "discount": null,
+      "idParent": 13,
       "img": "https://cdn2.cellphones.com.vn/358x/media/catalog/product/4/h/4h43.png"
     },
     {
@@ -255,6 +268,7 @@
       "qty": "12",
       "price": "5990000",
       "discount": null,
+      "idParent": 14,
       "img": "https://cdn2.cellphones.com.vn/358x/media/catalog/product/1/_/1_218_5.png"
     },
     {
@@ -266,6 +280,7 @@
       "qty": "12",
       "price": "25790000",
       "discount": 5,
+      "idParent": 15,
       "img": "https://cdn2.cellphones.com.vn/358x/media/catalog/product/1/1/11h06.png"
     },
     {
@@ -277,6 +292,7 @@
       "qty": "12",
       "price": "15990000",
       "discount": null,
+      "idParent": 16,
       "img": "https://cdn2.cellphones.com.vn/358x/media/catalog/product/g/a/gaming_003_4.png"
     },
     {
@@ -288,6 +304,7 @@
       "qty": "12",
       "price": "18290000",
       "discount": null,
+      "idParent": 17,
       "img": "https://cdn2.cellphones.com.vn/358x/media/catalog/product/2/_/2.3_1_1.jpg"
     },
     {
@@ -299,6 +316,7 @@
       "qty": "12",
       "price": "18990000",
       "discount": null,
+      "idParent": 18,
       "img": "https://cdn2.cellphones.com.vn/358x/media/catalog/product/1/_/1_69_23.jpg"
     },
     {
@@ -310,6 +328,7 @@
       "qty": "12",
       "price": "20990000",
       "discount": 16,
+      "idParent": 19,
       "img": "https://cdn2.cellphones.com.vn/358x/media/catalog/product/4/h/4h00.png"
     },
     {
@@ -321,6 +340,7 @@
       "qty": "12",
       "price": "14990000",
       "discount": 50,
+      "idParent": 20,
       "img": "https://cdn2.cellphones.com.vn/358x/media/catalog/product/7/1/71qodgwqq7s._ac_sx679_.jpg"
     }
   ],
@@ -748,6 +768,15 @@
       "productId": 1,
       "qtyInCart": 1,
       "total": 32990000
+    }
+  ],
+  "comments":[
+    {
+      "id":1,
+      "productId":1,
+      "userId":1,
+      "content":"hello",
+      "rating":5
     }
   ]
 }
