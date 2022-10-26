@@ -21,15 +21,25 @@ export default {
         isGreater: Boolean,
         title: String,
         view: String,
-        max: Number
+        max: Number,
+        brand:Number
     },
     data() {
         return {array:[]};
     },
     async mounted(){
-        (this.isGreater == true ) ?
-        await axios.get(`${APIURL}/products?_sort=${this.view}&_order=asc&_limit=${this.max}`).then((response) => this.array = response.data) :
-        await axios.get(`${APIURL}/products?_sort=${this.view}&_order=desc&_limit=${this.max}`).then((response) => this.array = response.data)
+        
+
+        if(this.isGreater == true) {
+            await axios.get(`${APIURL}/products?_sort=${this.view}&_order=asc&_limit=${this.max}`).then((response) => this.array = response.data)
+        } 
+        
+        if(this.isGreater == false){
+            await axios.get(`${APIURL}/products?_sort=${this.view}&_order=desc&_limit=${this.max}`).then((response) => this.array = response.data)
+        }
+           
+        
+     
     },
     components: { ProductItem }
 }

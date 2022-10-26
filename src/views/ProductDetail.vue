@@ -3,7 +3,13 @@
     <div class="container-fluid container-xl">
         <div class="row pt-xl-5 ">
             <div class="col-lg-4">
-                <img class="w-100 h-100" :src="this.payload.product.img" alt="Image">
+                <img class="img-thumbnail w-100" :src="this.payload.product.img" alt="Image">
+                <div class="row pt-4">
+                    <div class="col"><img class="img-thumbnail" :src="this.payload.product.img" alt="Image"/></div>
+                    <div class="col"><img class="img-thumbnail" :src="this.payload.product.img" alt="Image"/></div>
+                    <div class="col"><img class="img-thumbnail" :src="this.payload.product.img" alt="Image"/></div>
+                    <div class="col"><img class="img-thumbnail" :src="this.payload.product.img" alt="Image"/></div>
+                </div>
             </div>
             <div class="col-lg-8 pb-5 pos">
                 <h3 class="font-weight-semi-bold">{{this.payload.product.name}} <span class="badge bg-danger text-white"
@@ -19,32 +25,24 @@
                 <h3 class="font-weight-semi-bold mb-4" v-else>{{formatPrice(this.payload.product.price)}} VNĐ</h3>
                 <p class="mb-4">{{this.payload.product.desc}}.</p>
                 <div class="d-flex mb-3">
-                    <p class="text-dark font-weight-medium mb-0 me-3">Sizes:</p>
+                    <p class="text-dark font-weight-medium mb-0 me-3">Dung lượng:</p>
                     <form class="d-flex gap-2">
                         <div class="custom-control custom-radio custom-control-inline">
                             <input type="radio" class="custom-control-input" id="size-1" name="size">
-                            <label class="custom-control-label" for="size-1">XS</label>
-                        </div>
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" class="custom-control-input" id="size-2" name="size">
-                            <label class="custom-control-label" for="size-2">S</label>
-                        </div>
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" class="custom-control-input" id="size-3" name="size">
-                            <label class="custom-control-label" for="size-3">M</label>
+                            <label class="custom-control-label" for="size-1">256 GB/8 GB</label>
                         </div>
                         <div class="custom-control custom-radio custom-control-inline">
                             <input type="radio" class="custom-control-input" id="size-4" name="size">
-                            <label class="custom-control-label" for="size-4">L</label>
+                            <label class="custom-control-label" for="size-4">512 GB/16 GB</label>
                         </div>
                         <div class="custom-control custom-radio custom-control-inline">
                             <input type="radio" class="custom-control-input" id="size-5" name="size">
-                            <label class="custom-control-label" for="size-5">XL</label>
+                            <label class="custom-control-label" for="size-5">1TB /16 GB</label>
                         </div>
                     </form>
                 </div>
                 <div class="d-flex mb-4">
-                    <p class="text-dark font-weight-medium mb-0 me-3">Colors:</p>
+                    <p class="text-dark font-weight-medium mb-0 me-3">Màu Sắc:</p>
                     <form class="d-flex gap-2">
                         <div class="custom-control custom-radio custom-control-inline">
                             <input type="radio" class="custom-control-input" id="color-1" name="color">
@@ -146,10 +144,10 @@
         
     </div>
     <div class="container-fluid container-xl pt-5">
-        <CommentCom/>
+        <CommentCom :user= this.getUser.username />
     </div>
     <div class="container-fluid pt-5">
-        <ListItem title="Có Thể Bạn Sẽ Thích" view="date" :isGreater="false" :max="4" />
+        <ListItem title="Có Thể Bạn Sẽ Thích" :brand="this.payload.product.brandId" />
     </div>
 </template>
 

@@ -1,4 +1,5 @@
 {
+  "discounts": [],
   "emails": [
     {
       "email": "hungtq@gmail.com",
@@ -770,13 +771,14 @@
       "total": 32990000
     }
   ],
-  "comments":[
+  "comments": [
     {
-      "id":1,
-      "productId":1,
-      "userId":1,
-      "content":"hello",
-      "rating":5
+      "id": "5baf0239-c74e-4eee-a27b-6a880102b244",
+      "productId": 1,
+      "user": "admin",
+      "content": "test",
+      "rating": 5,
+      "date": "2022-10-26"
     }
   ]
 }
